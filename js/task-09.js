@@ -13,13 +13,12 @@ const getRandomHexColor = function () {
       .padStart(6, 0)}`;
 };
 
-const randomColor = getRandomHexColor();
-
 const bgcColor = document.querySelector("body");
 const btnChangeColor = document.querySelector(".change-color");
 const colorName = document.querySelector("span.color");
 
 function changeColor() {
+   const randomColor = getRandomHexColor();
    bgcColor.style.backgroundColor = randomColor;
    colorName.textContent = randomColor;
 }
