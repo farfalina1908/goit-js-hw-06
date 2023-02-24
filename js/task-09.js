@@ -7,21 +7,20 @@
 
 // Для генерации случайного цвета используй функцию getRandomHexColor.
 
-const getRandomHexColor = function() {
-  return `#${Math.floor(Math.random() * 16777215)
-    .toString(16)
-    .padStart(6, 0)}`;
-}
+const getRandomHexColor = function () {
+   return `#${Math.floor(Math.random() * 16777215)
+      .toString(16)
+      .padStart(6, 0)}`;
+};
 
+const randomColor = getRandomHexColor();
 
 const bgcColor = document.querySelector("body");
 const btnChangeColor = document.querySelector(".change-color");
-const colorName =  document.querySelector("span.color");
-
-
+const colorName = document.querySelector("span.color");
 
 function changeColor() {
-  bgcColor.style.backgroundColor = getRandomHexColor();
-  colorName.textContent = getRandomHexColor();
-};
+   bgcColor.style.backgroundColor = randomColor;
+   colorName.textContent = randomColor;
+}
 btnChangeColor.addEventListener("click", changeColor);
