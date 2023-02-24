@@ -45,7 +45,7 @@ input.addEventListener("input", inputChange);
 let baseboxSize = 20;
 
 
-function getRandomHexColor() {
+const getRandomHexColor = function () {
     return `#${Math.floor(Math.random() * 16777215)
       .toString(16)
       .padStart(6, 0)}`;
@@ -55,6 +55,7 @@ function getRandomHexColor() {
 function createBoxes (amount) {
   amount = Number(input.getAttribute("count"));
   console.log(amount);
+  const fragment = document.createDocumentFragment();
   for (let i = 0; i < amount; i += 1) {
     baseboxSize += 10;
     const newBox = document.createElement("div");
@@ -63,8 +64,9 @@ function createBoxes (amount) {
     newBox.style.width = baseboxSize + "px";
     newBox.style.margin = "10px";
     newBox.classList.add("new-box");
-    boxes.append(newBox);
+    fragment.appendChild(newBox);
   }
+  boxes.appendChild(fragment);
 };
 
 createBoxBtn.addEventListener("click", createBoxes);
